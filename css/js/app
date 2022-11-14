@@ -1,6 +1,32 @@
 const app = {
   init: function () {
     console.log('init !');
+  },
+  player: {
+    x: 0,
+    y: 0,
+    direction: 'right',
+  },
+  targetCell: {
+    x: 5,
+    y: 3,
+  },
+
+  // board creation in div id=board
+  drawBoard: function () {
+    app.boardElem = document.querySelector("#board");
+    // 4 rows needed
+    for (app.rowX = 0; app.rowX < 4; app.rowX++){
+      app.rowElem = document.createElement("div");
+      app.rowElem.classList.add("row");
+      // 6 cells needed
+      for (app.cellY= 0; app.cellY < 6; app.cellY++) {
+        app.cellElem = document.createElement("div");
+        app.cellElem.classList.add("cell");
+      }
+      app.rowElem.appendChild(app.cellElem);
+    }
+    app.boardElem.appendChild(app.rowElem);
   }
 };
 
